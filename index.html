@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./app.js" defer></script>
+    <title>Cut Up Technique</title>
+</head>
+<body>
+    <div class="container">
+        <h1 id="title">Burroughs Cut Up Technique</h1>
+        <h4 id="subtitle">"Cut into the present and the future leaks out"</h4>
+        <div class="form">
+            <label for="userText">Text to cut-up:</label>
+            <textarea name="userText" id="userText" cols="30" rows="10"></textarea>
+            <div class="subform">
+                <fieldset>
+                    <legend>Word chunk size:</legend>
+                    <div>
+                        <input type="radio" name="chunkSize" id="1">
+                        <label for="">1</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="chunkSize" id="3">
+                        <label for="">3</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="chunkSize" id="5">
+                        <label for="">5</label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Type of mangle:</legend>
+                    <div>
+                        <input type="checkbox" name="chunkSize" id="shuffle" value="shuffle">
+                        <label for="shuffle">Shuffle</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="chunkSize" id="reverse" value="reverse">
+                        <label for="reverse">Reverse</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="chunkSize" id="other" value="other">
+                        <label for="other">Other</label>
+                    <div>
+                </fieldset>
+                </div>
+            <button id="cutBtn">Cut-Up</button>
+        </div>
+        <div class="display">
+            <p id="displayCut"></p>
+        </div>
+    </div> 
+</body>
+</html>
