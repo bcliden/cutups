@@ -1,12 +1,14 @@
-const userText = document.getElementById("userText");
-const cutBtn = document.getElementById("cutBtn");
-const displayCut = document.getElementById("displayCut");
+const userText = document.getElementById('userText');
+const cutBtn = document.getElementById('cutBtn');
+const displayCut = document.getElementById('displayCut');
 
-cutBtn.addEventListener("click", updateCut);
+let chunkSize = 2;
+
+cutBtn.addEventListener('click', updateCut);
 
 function updateCut(){
     // copy user text to array
-    let cutArray = userText.value.split(" ");
+    let cutArray = userText.value.split(' ');
     // alter array in the specified way
     let completedCut = mutateCut(cutArray);
     // update the display
@@ -14,19 +16,25 @@ function updateCut(){
 }
 
 function mutateCut(array){
-    let chunkedArr = chunkArray(array);
+    let chunkedArr = chunk(array, chunkSize);
     let shuffledArr = shuffle(chunkedArr);
-    return shuffledArr.join(" ");
-};
+    return shuffledArr.join(' ');
+}
 
-
-//TODO !!
-function chunkArray(array, chunkSize=1){
-    let arrayCopy = array.
-    for(let i = 1; i < array.length-1; i+=2){
-
+function chunk(array, chunkSize){
+    let arrayCopy = [];
+    // loop over future length of copied array
+    for(let i = 0; i < array.length/chunkSize; i++){
+        // init empty array at [i]
+        arrayCopy[i] = [];
+        // loop over original array & push each to [i]
+        for(let j = i*chunkSize; j < i*chunkSize+chunkSize; j++){
+            arrayCopy[i].push(array[j]);
+        }
+        // merge all arrays on [i] into string
+        arrayCopy[i] = arrayCopy[i].join(' ');
     }
-    return array;
+    return arrayCopy;
 }
 
 function shuffle(array){
@@ -38,8 +46,3 @@ function shuffle(array){
     }
     return arrayCopy;
 }
-
-// userText.split(" ")
-// reverse()
-// sort()
-// join()
