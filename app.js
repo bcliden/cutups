@@ -3,6 +3,8 @@ const cutBtn = document.getElementById('cutBtn');
 const displayCut = document.getElementById('displayCut');
 
 let chunkSize = 2;
+let mangleReverse = false;
+let mangleShuffle = true;
 
 cutBtn.addEventListener('click', updateCut);
 
@@ -16,19 +18,24 @@ function updateCut(){
 }
 
 function mutateCut(array){
-    let chunkedArr = chunk(array, chunkSize);
-    let shuffledArr = shuffle(chunkedArr);
-    return shuffledArr.join(' ');
+    // alter array based on controls
+    // order: chunk, then reverse, then shuffle
+    if(chunkSize > 1){
+        array = chunk(array, chunkSize);
+    }
+    if(mangleReverse) array.reverse();
+    if(mangleShuffle) {array = shuffle(array);}
+    return array.join(' ');
 }
 
-function chunk(array, chunkSize){
+function chunk(array, chunk){
     let arrayCopy = [];
     // loop over future length of copied array
-    for(let i = 0; i < array.length/chunkSize; i++){
+    for(let i = 0; i < array.length/chunk; i++){
         // init empty array at [i]
         arrayCopy[i] = [];
         // loop over original array & push each to [i]
-        for(let j = i*chunkSize; j < i*chunkSize+chunkSize; j++){
+        for(let j = i*chunk; j < i*chunk+chunk; j++){
             arrayCopy[i].push(array[j]);
         }
         // merge all arrays on [i] into string
