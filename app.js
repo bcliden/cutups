@@ -1,10 +1,13 @@
 const userText = document.getElementById('userText');
 const cutBtn = document.getElementById('cutBtn');
 const displayCut = document.getElementById('displayCut');
+const shuffleBox = document.getElementById('shuffle');
+const reverseBox = document.getElementById('reverse');
+const chunkSelector = document.querySelector('input[name="chunkSelect"]:checked');
 
+// let chunkSize = Number(chunkSelector.value);
 let chunkSize = 2;
-let mangleReverse = false;
-let mangleShuffle = true;
+console.log(chunkSize);
 
 cutBtn.addEventListener('click', updateCut);
 
@@ -23,8 +26,8 @@ function mutateCut(array){
     if(chunkSize > 1){
         array = chunk(array, chunkSize);
     }
-    if(mangleReverse) array.reverse();
-    if(mangleShuffle) {array = shuffle(array);}
+    if(reverseBox.checked) array.reverse();
+    if(shuffleBox.checked) {array = shuffle(array);}
     return array.join(' ');
 }
 

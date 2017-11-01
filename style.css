@@ -37,16 +37,19 @@ body {
 }
 
 .display {
-    background: rgb(204, 201, 201);
+    background: #FFECB3;
     border: 3px double #9E9E9E;
-    color: #fff;;
+    color: #333;
     margin-top: 40px;
+    margin-bottom: 40px;
     width: 100%;
-    height: 30%%;
+    height: 30%;
+    padding: 0 2rem;
 }
 .display p {
     padding: 20px;
     font-weight: 700;
+    line-height: 1.3;
 }
 
 .form {
