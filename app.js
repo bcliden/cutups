@@ -3,11 +3,10 @@ const cutBtn = document.getElementById('cutBtn');
 const displayCut = document.getElementById('displayCut');
 const shuffleBox = document.getElementById('shuffle');
 const reverseBox = document.getElementById('reverse');
-const chunkSelector = document.querySelector('input[name="chunkSelect"]:checked');
+// const chunkSelector = document.querySelector('input[name="chunkSelect"]:checked');
 
 // let chunkSize = Number(chunkSelector.value);
 let chunkSize = 2;
-console.log(chunkSize);
 
 cutBtn.addEventListener('click', updateCut);
 

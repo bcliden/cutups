@@ -1,8 +1,14 @@
+/*  TODO
+    - button animation
+    - get real colors
+    - properly space layout
+    - add breakpoints / mobile-tablet layouts */
+
 * {
     font-family: 'Averia Serif Libre','Courier New';
     font-weight: 300;
-    font-size: 1rem;
     box-sizing: border-box;
+    color: #000;
 }
 body {
     background: #f5f5f5;
@@ -13,29 +19,33 @@ body {
     align-items: center;
     flex-basis: 400px;
     width: 65%;
+    margin-top: 50px;
     margin: 0 auto;
+    padding: 0 40px;
+    max-width: 880px;
+    background-color: white;
 }
-
 #title {
     margin: 0;
     font-size: 2.92rem;
     font-family: 'Bungee Shade', cursive;
     font-weight: 500;
+    padding: 5px;
+    border-bottom: 3px double #000;
 }
-
 #subtitle {
-
+    max-width: 15rem;
 }
-
 #userText {
     resize: none;
     width: 100%;
+    font-size: 1rem;
     margin: 0;
     margin-bottom: 10px;
+    padding: 10px;
+    background-color: #F5F5F5;
     border: 3px double #9E9E9E;
-    
 }
-
 .display {
     background: #FFECB3;
     border: 3px double #9E9E9E;
@@ -51,7 +61,6 @@ body {
     font-weight: 700;
     line-height: 1.3;
 }
-
 .form {
     width: 80%;
     display: flex;
@@ -61,6 +70,7 @@ body {
     margin-top: 5px;
 }
 .form > label {
+    /* hide the textarea label */
     display: none;
 }
 .form button {
@@ -78,13 +88,10 @@ body {
 .subform {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 fieldset {
     border-radius: 5px;
     border: 3px double #9E9E9E;
-    
-}
-.subform fieldset div {
-    display: block;
+    flex: 1 0 40%;
 }
