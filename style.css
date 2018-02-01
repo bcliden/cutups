@@ -5,11 +5,6 @@ header scramble animation
 glow anim on results when scrambled?
 */
 
-
-@media screen and (min-width: 768px) {
-    
-}
-
 /* General Styles */
 
 * {
@@ -72,7 +67,8 @@ form > div {
     height: 30%;
 }
 
-.textDiv textarea {
+textarea {
+    resize: none;
     width: 100%;
     border: 3px double #9e9e9e;
     text-decoration: none;
@@ -161,3 +157,30 @@ footer {
 
 /* media queries for large and up */
 
+@media screen and (min-width: 768px) {
+
+    form {
+        border: 1px solid red;
+        flex-direction: row;
+    }
+    .textDiv {
+        width: 60%;
+        margin-right: 15px;
+    }
+    .controlsDiv {
+        padding: 20px 0 5px;
+    }
+    .options {
+        padding: 10px;
+    }
+    .options > div {
+        margin-top: 5px;
+    }
+    button[type="submit"] {
+        flex: 3 1 auto;
+    }
+    
+    button[type="reset"] {
+        flex: 1 1 auto;
+    }
+}
