@@ -7,24 +7,60 @@ const resultArea = document.querySelector('div.resultsDiv p');
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    let config = {
+    let cut = {
         text: textArea.value,
         chunk: chunkSize.value,
         reverse: reverseBool.checked,
         shuffle: shuffleBool.checked,
+        array: [],
+        cut: "",
     };
-    handleCut(config);
+    handleCut(cut);
 });
 
 form.addEventListener('reset', () => {
     resultArea.textContent = 'Your results will appear here.';
 });
 
-function handleCut(config) {
-    console.dir(config.text);
-    console.log(config.chunk);
-    console.log(config.reverse);
-    console.log(config.shuffle);
+function handleCut(data) {
+    splitText(data)
+        .then((splitData) => chunkCut(splitData))
+        .then((testData) => console.log(testData))
+        // .then((splitData) => chunkCut(splitData))
+        // .then(() => reverseCut())
+        // .then(() => shuffleCut())
+        // .then(() => updateCut());
 }
 
-// resultArea.textContent = 'the script ran';
+function splitText (data) {
+    data.array = data.text.split(' ');
+    return new Promise ( function (resolve, reject) {
+        resolve(data);
+    });
+}
+
+function chunkCut (data) {
+    let array = data.text;
+    let chunk = data.chunk;
+    let arrayCopy = [];
+    // loop over future length of copied array
+    for(let i = 0; i < array.length/chunk; i++){
+        // init empty array at [i]
+        arrayCopy[i] = [];
+        // loop over original array & push each to [i]
+        for(let j = i*chunk; j < i*chunk+chunk; j++){
+            arrayCopy[i].push(array[j]);
+        }
+        // merge all arrays on [i] into string
+        arrayCopy[i] = arrayCopy[i].join(' ');
+    }
+    array = arrayCopy;
+    return new Promise( function(resolve, reject) {
+        resolve(data);
+    })
+}
+
+
+function updateCut() {
+
+}
