@@ -9,7 +9,7 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     let cut = {
         text: textArea.value,
-        chunk: chunkSize.value,
+        chunk: Number(chunkSize.value),
         reverse: reverseBool.checked,
         shuffle: shuffleBool.checked,
         array: [],
@@ -23,25 +23,20 @@ form.addEventListener('reset', () => {
 });
 
 function handleCut(data) {
-    splitText(data)
-        .then((splitData) => chunkCut(splitData))
-        .then((testData) => console.log(testData))
-        // .then((splitData) => chunkCut(splitData))
-        // .then(() => reverseCut())
-        // .then(() => shuffleCut())
-        // .then(() => updateCut());
+
+    let results = pipe(
+        [ splitText, chunkCut ],
+        data
+    );
 }
 
 function splitText (data) {
     data.array = data.text.split(' ');
-    return new Promise ( function (resolve, reject) {
-        resolve(data);
-    });
+    return data;
 }
 
 function chunkCut (data) {
-    let array = data.text;
-    let chunk = data.chunk;
+    let { array, chunk } = data;
     let arrayCopy = [];
     // loop over future length of copied array
     for(let i = 0; i < array.length/chunk; i++){
@@ -54,13 +49,12 @@ function chunkCut (data) {
         // merge all arrays on [i] into string
         arrayCopy[i] = arrayCopy[i].join(' ');
     }
-    array = arrayCopy;
-    return new Promise( function(resolve, reject) {
-        resolve(data);
-    })
+    data.array = arrayCopy;
+    return data;
 }
 
-
-function updateCut() {
-
+function pipe(array, data) {
+    return array.reduce((acc, next) => {
+        return next(acc(data));
+    });
 }
