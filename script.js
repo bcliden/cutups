@@ -26,8 +26,7 @@ function handleCut(data) {
     // pass data obj as first arg, then remaining fns in order
     // must reverse before array gets chunked
     let results = pipe(data, splitText, reverseCut, chunkCut, shuffleCut);
-    resultArea.textContent = results.array.join(' ');
-    console.log(results.array.join(' '));
+    updatePage(results);
 }
 
 function pipe (data, ...fns) {
@@ -82,4 +81,8 @@ function reverseCut (data) {
     }
     console.log(data.array);
     return data;
+}
+
+function updatePage(results) {
+    resultArea.textContent = results.array.join(' ');
 }
