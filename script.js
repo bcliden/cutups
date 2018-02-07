@@ -23,11 +23,17 @@ form.addEventListener('reset', () => {
 });
 
 function handleCut(data) {
+    // pass data obj as first arg, then remaining fns in order
+    let results = pipe(data, splitText, chunkCut, shuffleCut);
+    resultArea.textContent = results.array.join(' ');
+    console.log(results.array.join(' '));
+}
 
-    let results = pipe(
-        [ splitText, chunkCut ],
-        data
-    );
+function pipe (data, ...fns) {
+    // nests the functions together, no limit
+    return fns.reduce((acc, next) => {
+        return next(acc);
+    }, data);
 }
 
 function splitText (data) {
@@ -49,12 +55,21 @@ function chunkCut (data) {
         // merge all arrays on [i] into string
         arrayCopy[i] = arrayCopy[i].join(' ');
     }
+    //trim extra space from last entry if necessary
+    arrayCopy[arrayCopy.length-1] = arrayCopy[arrayCopy.length - 1].trim();
     data.array = arrayCopy;
     return data;
 }
 
-function pipe(array, data) {
-    return array.reduce((acc, next) => {
-        return next(acc(data));
-    });
+function shuffleCut (data) {
+    if( data.shuffle ){
+        let arrayCopy = data.array.slice();
+        // shuffle array using fisher-yates algorithm
+        for(let idx1 = arrayCopy.length-1; idx1 > 0; idx1--){
+            let idx2 = Math.floor(Math.random()*(idx1+1));
+            [arrayCopy[idx1], arrayCopy[idx2]] = [arrayCopy[idx2], arrayCopy[idx1]];
+        }
+        data.array = arrayCopy;
+    }   
+    return data;
 }
