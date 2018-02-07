@@ -24,7 +24,8 @@ form.addEventListener('reset', () => {
 
 function handleCut(data) {
     // pass data obj as first arg, then remaining fns in order
-    let results = pipe(data, splitText, chunkCut, shuffleCut);
+    // must reverse before array gets chunked
+    let results = pipe(data, splitText, reverseCut, chunkCut, shuffleCut);
     resultArea.textContent = results.array.join(' ');
     console.log(results.array.join(' '));
 }
@@ -70,6 +71,15 @@ function shuffleCut (data) {
             [arrayCopy[idx1], arrayCopy[idx2]] = [arrayCopy[idx2], arrayCopy[idx1]];
         }
         data.array = arrayCopy;
-    }   
+    }
+    return data;
+}
+
+function reverseCut (data) {
+    console.log(data.reverse);
+    if( data.reverse ){
+        data.array.reverse();
+    }
+    console.log(data.array);
     return data;
 }
