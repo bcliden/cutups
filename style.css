@@ -119,30 +119,30 @@ button {
     border-radius: 5px;
     text-align: center;
     font-family: 'Averia Serif Libre','Courier New';
-    font-size: 1rem;
+    font-size: .95rem;
     display: block;
     position: relative;
     letter-spacing: 2px;
-    box-shadow: 0 4px #efa424;
     border-radius: 10px;
-}
-
-button:hover {
-    box-shadow: 0 2px #efa424;
-    top: 2px;
-}
-
-button:active {
-    box-shadow: 0 0 #efa424;
-    top: 4px;
 }
 
 button[type="submit"] {
     flex: 1 1 auto;
     padding: 8px 24px;    
-    background: #008CBA;
+    background: #00b2ed;
     margin-top: 4px;
     margin-bottom: 2px;
+    box-shadow: 0 4px #008cba;
+}
+
+button[type="submit"]:hover {
+    box-shadow: 0 3px #008cba;
+    top: 1px;
+}
+
+button[type="submit"]:active {
+    box-shadow: 0 0 #008cba;
+    top: 4px;
 }
 
 button[type="reset"] {
@@ -150,6 +150,17 @@ button[type="reset"] {
     flex: 1 1 auto;
     background: #F44336;
     margin-top: 5px;
+    box-shadow: 0 4px #ea1c0d;    
+}
+
+button[type="reset"]:hover {
+    box-shadow: 0 3px #ea1c0d;
+    top: 1px;
+}
+
+button[type="reset"]:active {
+    box-shadow: 0 0 #ea1c0d;
+    top: 4px;
 }
 
 hr {
