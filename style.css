@@ -73,6 +73,7 @@ textarea {
     resize: none;
     width: 100%;
     border: 3px double #9e9e9e;
+    border-radius: 5px;
     text-decoration: none;
     font-family: 'Averia Serif Libre','Courier New';
     font-size: .9rem;
@@ -102,25 +103,46 @@ textarea:focus {
 .buttons {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: stretch;
     margin: 0 auto;
+    position: relative;
+    top: -4px;
 }
 
 button {
     border: none;
-    color: #fff;
-    padding: 12px 24px;
     text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
     border-radius: 5px;
     text-align: center;
     font-family: 'Averia Serif Libre','Courier New';
     font-size: 1rem;
+    display: block;
+    position: relative;
+    letter-spacing: 2px;
+    box-shadow: 0 4px #efa424;
+    border-radius: 10px;
+}
+
+button:hover {
+    box-shadow: 0 2px #efa424;
+    top: 2px;
+}
+
+button:active {
+    box-shadow: 0 0 #efa424;
+    top: 4px;
 }
 
 button[type="submit"] {
     flex: 1 1 auto;
+    padding: 8px 24px;    
     background: #008CBA;
+    margin-top: 4px;
+    margin-bottom: 2px;
 }
 
 button[type="reset"] {
@@ -169,7 +191,7 @@ footer {
         margin-right: 15px;
     }
     .controlsDiv {
-        padding: 20px 0 5px;
+        padding: 20px 0 4px 0;
     }
     .options {
         padding: 10px;
