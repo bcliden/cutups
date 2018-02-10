@@ -1,19 +1,16 @@
-const form = document.querySelector('form');
-const textArea = form.querySelector('#textArea');
-const chunkSize = form.querySelector('select[name="chunkSelect"]');
-const reverseBool = form.querySelector('input[name="reverseBox"]');
-const shuffleBool = form.querySelector('input[name="shuffleBox"]');
-const resultArea = document.querySelector('div.resultsDiv p');
+const form = document.forms.cutForm;
+const { textArea, chunkSelect, reverseBox, shuffleBox } = form;
+const resultArea = document.querySelector('.resultsDiv p');
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     let cut = {
         text: textArea.value,
-        chunk: Number(chunkSize.value),
-        reverse: reverseBool.checked,
-        shuffle: shuffleBool.checked,
+        chunk: Number(chunkSelect.value),
+        reverse: reverseBox.checked,
+        shuffle: shuffleBox.checked,
         array: [],
-        cut: "",
+        cut: '',
     };
     handleCut(cut);
 });
@@ -25,11 +22,12 @@ form.addEventListener('reset', () => {
 function handleCut(data) {
     // pass data obj as first arg, then remaining fns in order
     // must reverse before array gets chunked
-    let results = pipe(data, splitText, reverseCut, chunkCut, shuffleCut);
+    let operations = [splitText, reverseCut, chunkCut, shuffleCut];
+    let results = pipe(data, operations);
     updatePage(results);
 }
 
-function pipe (data, ...fns) {
+function pipe (data, fns) {
     // nests the functions together, no limit
     return fns.reduce((acc, next) => {
         return next(acc);
@@ -75,11 +73,9 @@ function shuffleCut (data) {
 }
 
 function reverseCut (data) {
-    console.log(data.reverse);
     if( data.reverse ){
         data.array.reverse();
     }
-    console.log(data.array);
     return data;
 }
 
