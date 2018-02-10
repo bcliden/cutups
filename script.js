@@ -1,22 +1,39 @@
 const form = document.forms.cutForm;
 const { textArea, chunkSelect, reverseBox, shuffleBox } = form;
+const header = document.querySelector('#top');
 const resultArea = document.querySelector('.resultsDiv p');
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    let cut = {
-        text: textArea.value,
-        chunk: Number(chunkSelect.value),
-        reverse: reverseBox.checked,
-        shuffle: shuffleBox.checked,
-        array: [],
-        cut: '',
-    };
-    handleCut(cut);
+    if( textArea.value ) {
+        let cut = {
+            text: textArea.value,
+            chunk: Number(chunkSelect.value),
+            reverse: reverseBox.checked,
+            shuffle: shuffleBox.checked,
+            array: [],
+            splitOn: ' ',
+        };
+        handleCut(cut);
+    }
 });
 
 form.addEventListener('reset', () => {
     resultArea.textContent = 'Your results will appear here.';
+});
+
+header.addEventListener('click', () => {
+    let cut = {
+        text: header.textContent,
+        shuffle: true,
+        array: [],
+        splitOn: '',
+    };
+    handleHeader(cut);
+});
+
+header.addEventListener('mouseleave', () => {
+    header.textContent = 'Cut-Ups';
 });
 
 function handleCut(data) {
@@ -24,7 +41,13 @@ function handleCut(data) {
     // must reverse before array gets chunked
     let operations = [splitText, reverseCut, chunkCut, shuffleCut];
     let results = pipe(data, operations);
-    updatePage(results);
+    updatePage(results, resultArea);
+}
+
+function handleHeader(data) {
+    let operations = [splitText, shuffleCut];
+    let results = pipe(data, operations);
+    updatePage(results, header);
 }
 
 function pipe (data, fns) {
@@ -35,7 +58,7 @@ function pipe (data, fns) {
 }
 
 function splitText (data) {
-    data.array = data.text.split(' ');
+    data.array = data.text.split(data.splitOn);
     return data;
 }
 
@@ -79,6 +102,6 @@ function reverseCut (data) {
     return data;
 }
 
-function updatePage(results) {
-    resultArea.textContent = results.array.join(' ');
+function updatePage(results, area) {
+    area.textContent = results.array.join(results.splitOn);
 }
