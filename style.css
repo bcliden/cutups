@@ -13,17 +13,21 @@ glow anim on results when scrambled?
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100vh;
+}
+
 html {
     font-family: 'Averia Serif Libre','Courier New';
     font-weight: 300;
     font-size: 1.1rem;
     color: #000000;
-    min-height: 100%;
     position: relative;
 }
 
 body {
-    margin: 0 0 25px;
+    display: flex;
+    flex-direction: column;
 }
 
 /*  Header Styles */
@@ -45,14 +49,18 @@ header h1 {
     padding: 10px;
     margin: 0 auto;
     text-align: center;
+    cursor: pointer;
 }
 
 /*  main styles */
 
 main {
+    flex: 1 1 auto;
     margin: 0 auto;
     width: 95%;
     max-width: 729px;
+    /* main height minus header + footer */
+    /* height: calc(100% - 20px - 82px); */
 }
 
 form {
@@ -178,12 +186,12 @@ hr {
 /*  footer styles */
 
 footer {
+    flex: 0 0 20px;
+    align-self: flex-end;
     height: 20px;
     overflow: hidden;
-    position: fixed;
-    bottom: 0;
-    left: 0;
     padding-left: 10px;
+    margin-top: 10px;
     font-size: .8rem;
     color: darkgray;
     background: lightgray;
@@ -193,7 +201,6 @@ footer {
 /* media queries for large and up */
 
 @media screen and (min-width: 768px) {
-
     form {
         flex-direction: row;
     }
