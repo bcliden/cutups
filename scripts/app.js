@@ -5,6 +5,9 @@
 const form = document.forms.cutForm;
 const { textArea, chunkSelect, reverseBox, shuffleBox } = form;
 const header = document.querySelector('#top');
+const modalOpen = document.querySelector('a.icon-modalOpen');
+const modalClose = document.querySelector('.modal a.icon-modalClose');
+const modal = document.querySelector('.modal');
 const resultArea = document.querySelector('.resultsDiv p');
 
 form.addEventListener('submit', (e) => {
@@ -38,6 +41,18 @@ header.addEventListener('click', () => {
 
 header.addEventListener('mouseleave', () => {
     header.textContent = 'Cut-Ups';
+});
+
+modalOpen.addEventListener('click', () => {
+    let textDiv = document.querySelector('.textDiv');
+    modal.style.top = textDiv.offsetTop + 'px';
+    modal.style.width = textDiv.offsetWidth + 'px';
+    modal.style.height = textDiv.offsetHeight - 4 + 'px';
+    modal.classList.toggle('active');
+});
+
+modalClose.addEventListener('click', () => {
+    modal.classList.toggle('active');
 });
 
 function handleCut(data) {
