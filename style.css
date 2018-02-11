@@ -1,8 +1,10 @@
 /* 
 TODO:
-glow anim on results when scrambled?
-change break point for layout shift to Phone L, not tablet
-change line-height and padding shift along with layout break
+    glow anim on results when scrambled?
+    change break point for layout shift to Phone L, not tablet
+    change line-height and padding shift along with layout break
+    add info icon above textarea && modal
+    footer info incl
 */
 
 /* General Styles */
@@ -172,6 +174,7 @@ button[type="reset"]:active {
 
 hr {
     margin: 10px 0;
+    margin-bottom: 13px;
     border-top: 3px double #9E9E9E;
 }
 
