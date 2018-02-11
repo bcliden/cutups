@@ -1,3 +1,7 @@
+// Todo:
+//     - append child vs textContent
+//     - paragraphs optional
+
 const form = document.forms.cutForm;
 const { textArea, chunkSelect, reverseBox, shuffleBox } = form;
 const header = document.querySelector('#top');
