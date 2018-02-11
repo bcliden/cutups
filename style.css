@@ -2,6 +2,7 @@
 TODO:
 glow anim on results when scrambled?
 change break point for layout shift to Phone L, not tablet
+change line-height and padding shift along with layout break
 */
 
 /* General Styles */
@@ -230,5 +231,9 @@ footer {
     }
     button[type="reset"] {
         flex: 1 1 auto;
+    }
+    .resultsDiv p {
+        padding: 25px;
+        line-height: 1.5;
     }
 }
