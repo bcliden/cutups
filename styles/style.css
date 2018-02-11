@@ -78,6 +78,21 @@ form > div {
     height: 30%;
 }
 
+.textDiv label {
+    margin-left: 5px;
+}
+
+.textDiv a {
+    cursor: pointer;
+    color: #9E9E9E;
+    float: right;
+    margin-right: 5px;
+}
+
+.textDiv a:hover {
+    color: #000;
+}
+
 textarea {
     resize: none;
     width: 100%;
@@ -87,14 +102,11 @@ textarea {
     font-family: 'Averia Serif Libre','Courier New';
     font-size: .9rem;
     padding: 5px;
+    margin-top: 5px;
 }
 
 textarea:focus {
     background: cornsilk;
-}
-
-.textDiv label {
-    display: block;
 }
 
 .controlsDiv {
@@ -221,7 +233,7 @@ footer {
         margin-right: 15px;
     }
     .controlsDiv {
-        padding: 20px 0 4px 0;
+        padding: 25px 0 4px 0;
     }
     .options {
         padding: 10px;
