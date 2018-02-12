@@ -10,6 +10,8 @@ const modalClose = document.querySelector('.modal a.icon-modalClose');
 const modal = document.querySelector('.modal');
 const resultArea = document.querySelector('.resultsDiv p');
 
+// EVENT LISTENERS
+
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     if( textArea.value ) {
@@ -48,12 +50,16 @@ modalOpen.addEventListener('click', () => {
     modal.style.top = textDiv.offsetTop + 'px';
     modal.style.width = textDiv.offsetWidth + 'px';
     modal.style.height = textDiv.offsetHeight - 4 + 'px';
-    modal.classList.toggle('active');
+    modal.classList.add('active');
 });
 
 modalClose.addEventListener('click', () => {
-    modal.classList.toggle('active');
+    modal.classList.remove('active');
+    modal.style.width = 0 + 'px';
+    modal.style.height = 0 + 'px';
 });
+
+//  *** FUNCTIONS ***
 
 function handleCut(data) {
     // pass data obj as first arg, then remaining fns in order

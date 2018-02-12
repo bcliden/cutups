@@ -3,7 +3,6 @@ TODO:
     glow anim on results when scrambled?
     change break point for layout shift to Phone L, not tablet
     change line-height and padding shift along with layout break
-    add info icon above textarea && modal
     footer info incl
 */
 
@@ -32,12 +31,22 @@ body {
     flex-direction: column;
 }
 
+a {
+    cursor: pointer;
+    color: #9E9E9E;
+}
+
+a:hover {
+    color: #000;
+}
+
+span.quote {
+    font-style: italic;
+}
+
 /*  Header Styles */
 
 header {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
     width: 100%;
     border-bottom: 3px double #9E9E9E;
     background: #fff;
@@ -82,47 +91,45 @@ form > div {
     margin-left: 8px;
 }
 
-.textDiv a {
-    cursor: pointer;
-    color: #9E9E9E;
-}
-
 .textDiv a.icon-modalOpen {
     float: right;
     margin-right: 8px;
-}
-
-.textDiv a:hover {
-    color: #000;
 }
 
 .modal {
     background: #fff;
     opacity: 0;
     z-index: -10;
+
     width: 0px;
     height: 0px;
+    padding: 0 15px 15px;
+    max-width: 95vw;
+
     position: absolute;
     display: none;
-    border-radius: 5px;
+
     border: 3px double #9E9E9E;
+    border-radius: 5px;
     font-size: .9rem;
+
+    display: block;
 }
 
 .modal.active {
     z-index: 10;
     opacity: 1;
-    display: block;
 }
 
 .modal a.icon-modalClose {
     float: right;
     padding: 5px 8px;
     display: block;
+    margin-right: -15px;
 }
 
-.modal p {
-    padding: 15px;
+.modal p:first-of-type {
+    margin-top: 15px;
 }
 
 textarea {
@@ -151,6 +158,10 @@ textarea:focus {
     border-radius: 5px;
     border: 3px double #9E9E9E;
     margin-right: 10px;
+}
+
+select {
+    font-size: .8rem;
 }
 
 .buttons {
@@ -232,16 +243,22 @@ hr {
 
 /*  footer styles */
 
+.wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 footer {
-    flex: 0 0 20px;
+    flex: 0 0 2rem;
     align-self: flex-end;
-    height: 20px;
+    margin-top: 10px;
+    width: 100%;    
     overflow: hidden;
     padding-left: 10px;
     font-size: .8rem;
-    color: darkgray;
+    color: white;
     background: lightgray;
-    width: 100%;
+    text-shadow: 1px 1px 10px #9E9E9E;
 }
 
 /* media queries for large and up */
@@ -254,8 +271,6 @@ footer {
     main {
         width: 100%;
         padding: 0px 40px 20px 40px;
-        /* border-left: 3px double #9E9E9E;
-        border-right: 3px double #9E9E9E;       */
     }
     form {
         flex-direction: row;
@@ -282,5 +297,8 @@ footer {
     .resultsDiv p {
         padding: 25px;
         line-height: 1.5;
+    }
+    footer {
+        flex: 0 0 20px;
     }
 }
