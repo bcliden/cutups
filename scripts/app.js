@@ -8,6 +8,7 @@ const header = document.querySelector('#top');
 const modalOpen = document.querySelector('a.icon-modalOpen');
 const modalClose = document.querySelector('.modal a.icon-modalClose');
 const modal = document.querySelector('.modal');
+const submitBtn = document.querySelector('button[type="submit"]');
 const resultArea = document.querySelector('.resultsDiv p');
 
 // EVENT LISTENERS
@@ -15,6 +16,7 @@ const resultArea = document.querySelector('.resultsDiv p');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     if( textArea.value ) {
+        submitBtn.textContent = 'Again?';
         let cut = {
             text: textArea.value,
             chunk: Number(chunkSelect.value),
@@ -29,6 +31,7 @@ form.addEventListener('submit', (e) => {
 
 form.addEventListener('reset', () => {
     resultArea.textContent = 'Your results will appear here.';
+    submitBtn.textContent = 'Submit';
 });
 
 header.addEventListener('click', () => {
