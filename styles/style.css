@@ -20,7 +20,8 @@ html {
     color: #000000;
     overflow: hidden;
     height: 100%;
-    position: relative;
+    overscroll-behavior-y: none;
+    /* position: relative; */
     /* position: fixed;
     top: 0;
     right: 0;
