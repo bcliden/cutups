@@ -110,7 +110,7 @@ form > div {
 
     border-radius: 5px;
     font-size: .9rem;
-    background: #F5F5F5;
+    background: #EEEEEE;
 }
 
 .modal.active {
@@ -254,16 +254,30 @@ hr {
 }
 
 footer {
-    flex: 0 0 2rem;
+    flex: 0 0 3rem;
     align-self: flex-end;
     margin-top: 10px;
     width: 100%;    
     overflow: hidden;
     padding-left: 10px;
     font-size: .8rem;
-    color: white;
-    background: lightgray;
-    text-shadow: 1px 1px 10px #9E9E9E;
+    color: #fff;
+    background: #E0E0E0;
+    text-shadow: 2px 2px 10px #616161;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    display: inline-block;
+}
+
+.wrapper {
+    /* display: flex;
+    flex-direction: 
+    justify-content: center;
+    align-items: center; */
 }
 
 /* media queries for large and up */
@@ -304,9 +318,9 @@ footer {
         line-height: 1.5;
     }
     footer {
-        flex: 0 0 20px;
+        padding-left: 0;
     }
      footer .wrapper p {
-         display: inline;
+         /* display: inline; */
      }
 }
