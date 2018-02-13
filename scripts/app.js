@@ -55,6 +55,7 @@ modalOpen.addEventListener('click', () => {
 
 modalClose.addEventListener('click', () => {
     modal.classList.remove('active');
+    modal.style.top = 0 + 'px';
     modal.style.width = 0 + 'px';
     modal.style.height = 0 + 'px';
 });

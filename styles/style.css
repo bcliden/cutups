@@ -29,7 +29,6 @@ body {
     flex-direction: column;
     position: relative;
     overflow: hidden;
-    /* width: 100vw; */
 }
 
 a {
@@ -104,30 +103,34 @@ form > div {
 
     width: 0px;
     height: 0px;
-    padding: 0 15px 15px;
-    max-width: 95vw;
 
     position: absolute;
     top: 0;
     display: none;
 
-    border: 3px double #9E9E9E;
     border-radius: 5px;
     font-size: .9rem;
-
-    display: block;
+    background: #F5F5F5;
 }
 
 .modal.active {
     z-index: 10;
     opacity: 1;
+    padding: 0 15px 15px;
+    max-width: 95vw;
+    border: 3px double #9E9E9E;
+    display: inherit;
 }
 
 .modal a.icon-modalClose {
     float: right;
     padding: 5px 8px;
-    display: block;
     margin-right: -15px;
+    display: inherit;
+}
+
+.modal.active a.icon-modalClose {
+
 }
 
 .modal p:first-of-type {
@@ -303,4 +306,7 @@ footer {
     footer {
         flex: 0 0 20px;
     }
+     footer .wrapper p {
+         display: inline;
+     }
 }
