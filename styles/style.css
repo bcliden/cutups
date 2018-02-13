@@ -13,21 +13,20 @@ TODO:
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100vh;
-}
-
 html {
     font-family: 'Averia Serif Libre','Courier New';
     font-weight: 300;
     font-size: 1.1rem;
     color: #000000;
-    position: relative;
+    overflow: hidden;
+    height: 100%;
 }
 
 body {
     display: flex;
     flex-direction: column;
+    overflow: auto;
+    height: 100%;
 }
 
 a {
