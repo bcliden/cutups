@@ -28,7 +28,7 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    overflow: hidden;
+    overflow: auto;
 }
 
 a {
@@ -72,6 +72,9 @@ main {
     width: 95%;
     max-width: 800px;
     background: #fff;
+
+    z-index: 5;
+    /* this prevents weird header overlap */
 }
 
 form {
